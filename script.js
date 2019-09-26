@@ -1,13 +1,51 @@
-"use strict";
-function get() {
-  fetch("https://database1-6832.restdb.io/rest/superheroes", {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "5d887445fd86cb75861e25f2",
-      "cache-control": "no-cache"
+("use strict");
+//ændre indholdet i form heroname
+const form = document.querySelector("form");
+form.addEventListener("submit", evt => {
+  console.log(evt);
+  evt.preventDefault();
+  const data2 = {
+    heroname: `${form.elements.heroname.value}`,
+    realname: `${form.elements.realname.value}`,
+    powers: `${form.elements.abilities.value}`,
+    age: 10
+  };
+  addHeroToTheDom(data2);
+  const postData = JSON.stringify(data2);
+  fetch(
+    "https://database1-6832.restdb.io/rest/superheroes?q={}&sort=heroname",
+    {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": "5d887445fd86cb75861e25f2",
+        "cache-control": "no-cache"
+      },
+      body: postData
     }
-  })
+  )
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      //addHeroToTheDom(data);
+    });
+});
+form.elements.heroname.addEventListener("keyup", e => {
+  console.log(e.key);
+});
+
+function get() {
+  fetch(
+    "https://database1-6832.restdb.io/rest/superheroes?q={}&sort=heroname",
+    {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": "5d887445fd86cb75861e25f2",
+        "cache-control": "no-cache"
+      }
+    }
+  )
     .then(e => e.json())
     .then(heroes => {
       console.log(heroes);
@@ -32,22 +70,25 @@ function addHeroToTheDom(hero) {
 
 function post() {
   const data = {
-    heroname: "Hulk",
-    realname: "DR-sometihng",
-    powers: "he is super strong, can jump very high, he mostly go berserk",
-    age: 44
+    heroname: `Black Panther`,
+    realname: `Tchalla`,
+    powers: `Fight like a panther`,
+    age: 10
   };
   addHeroToTheDom(data);
   const postData = JSON.stringify(data);
-  fetch("https://database1-6832.restdb.io/rest/superheroes", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "5d887445fd86cb75861e25f2",
-      "cache-control": "no-cache"
-    },
-    body: postData
-  })
+  fetch(
+    `https://database1-6832.restdb.io/rest/superheroes?q={}&sort=heroname"`,
+    {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": "5d887445fd86cb75861e25f2",
+        "cache-control": "no-cache"
+      },
+      body: postData
+    }
+  )
     .then(res => res.json())
     .then(data => {
       console.log(data);

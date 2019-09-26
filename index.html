@@ -15,9 +15,46 @@
       h3 {
         background-color: gray;
       }
+      #form {
+        padding: 3rem;
+        padding-left: 0;
+      }
+      input {
+        border-radius: 2rem;
+      }
+      textarea {
+        border-radius: 1rem;
+        height: 3rem;
+        width: 20rem;
+      }
     </style>
   </head>
   <body>
+    <form id="form">
+      <h1>Add a new hero</h1>
+      <label name="heroname">Hero Name</label>
+      <br />
+      <input
+        required
+        placeholder="Type hero name"
+        type="text"
+        name="heroname"
+      />
+      <br />
+      <label name="realname">Real Name</label>
+      <br />
+      <input
+        required
+        placeholder="Type real name"
+        type="text"
+        name="realname"
+      />
+      <br />
+      <label name="abilities">Abillities</label>
+      <br />
+      <textarea required name="abilities"></textarea>
+      <input name="sub" type="submit" value="Add here" />
+    </form>
     <button id="button">Add hero</button>
     <template>
       <div class="temp">
