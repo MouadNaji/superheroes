@@ -8,31 +8,38 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form id="form">
-      <h1>Add a new hero</h1>
-      <label name="heroname">Hero Name</label>
-      <br />
-      <input
-        required
-        placeholder="Type hero name"
-        type="text"
-        name="heroname"
-      />
-      <br />
-      <label name="realname">Real Name</label>
-      <br />
-      <input
-        required
-        placeholder="Type real name"
-        type="text"
-        name="realname"
-      />
-      <br />
-      <label name="abilities">Abillities</label>
-      <br />
-      <textarea required name="abilities"></textarea>
-      <input name="sub" type="submit" value="Add here" />
-    </form>
+    <section id="sec">
+      <form id="form">
+        <h1>Add a new hero</h1>
+        <label name="heroname">Hero Name</label>
+        <br />
+        <input
+          required
+          placeholder="Type hero name"
+          type="text"
+          name="heroname"
+        />
+        <br />
+        <label name="realname">Real Name</label>
+        <br />
+        <input
+          required
+          placeholder="Type real name"
+          type="text"
+          name="realname"
+        />
+        <br />
+        <label name="abilities">Abillities</label>
+        <br />
+        <textarea
+          placeholder="Type the abilities of the hero"
+          required
+          name="abilities"
+        ></textarea
+        ><br />
+        <input name="sub" type="submit" value="Add hero" />
+      </form>
+    </section>
     <button id="button">Add hero</button>
     <template id="template1">
       <div class="temp">
